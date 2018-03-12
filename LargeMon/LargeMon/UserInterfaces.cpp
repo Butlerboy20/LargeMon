@@ -5,13 +5,16 @@
 #include "UserInterfaces.h"
 #include "LargeMon.h"
 
+LargeMon largemon;
+
 using namespace std;
+
 
 int UserInterfaces::displayInitialScreen() {
 	cout << "Welcome to LargeMon" << endl;
 	cout << "                   ---              " << endl;
 	cout << "Please choose one of the following options" << endl;
-	cout << "1. Create a New LargeMon\n 2. Go to Battle!\n 3. Info Screen/Help\n";
+	cout << " 1. Create a New LargeMon\n 2. Go to Battle!\n 3. Info Screen/Help\n";
 	cin >> menuOption;
 	return menuOption;
 }
@@ -19,13 +22,24 @@ int UserInterfaces::displayInitialScreen() {
 int UserInterfaces::displayGenerator() {
 	cout << "This is the LargeMon Generator Screen" << endl;
 	cout << "Please Select a Type you would like your LargeMon to be" << endl;
-	cout << "1. Fire\n 2. Water\n 3. Wood";
+	cout << " 1. Fire\n 2. Water\n 3. Wood\n";
 	cin >> typeOption;
 	return typeOption;
 }
 
+//I added this in case you wanted to list the created Largemon so that the user could select them from a list.
+//I would read the file and for each line list the LargeMon (I have just added 5 here as a place holder).
+int UserInterfaces::displayChooseLargeMon() {
+	cout << "Choose your LargeMon, select its number:" << endl;
+	for (int i = 1; i < 5; i++) {
+		cout << i << ": LargeMon" << endl;
+	}
+	cin >> LargeMonOption;
+	return LargeMonOption;
+}
+
 int UserInterfaces::displayBattle() {
-	cout << "1. Attack\n 2. Special Attack\n 3. Heal";
+	cout << " 1. Attack\n 2. Special Attack\n 3. Heal\n";
 	cin >> battleOption;
 	return battleOption;
 }

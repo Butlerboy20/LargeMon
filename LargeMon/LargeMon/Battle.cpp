@@ -2,11 +2,11 @@
 #include "Battle.h"
 #include "LargeMon.h"
 
-Battle::Battle() {
-	LargeMon userLargeMon, AILargeMon;
-	PhysicalAttributeGenerator generator;
-
-}
+//Battle::Battle() {
+//	LargeMon userLargeMon, AILargeMon;
+//	PhysicalAttributeGenerator generator;
+//
+//}
 //class will create to largeMon
 //One player and one AI that is randomly generated from random ID number
 // 3 main actions, attack - largemon hp is set to base hp- opponents attack points
