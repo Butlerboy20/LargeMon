@@ -1,0 +1,5 @@
+﻿  UserInterfaces.cpp
+  Main.cpp
+c:\users\dan\source\repos\largemon-master\largemon\largemon\main.cpp(17): warning C4101: 'battle': unreferenced local variable
+  Generating Code...
+  LargeMon.vcxproj -> C:\Users\Dan\source\repos\LargeMon-master\LargeMon\x64\Debug\LargeMon.exe
