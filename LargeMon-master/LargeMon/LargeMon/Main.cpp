@@ -6,6 +6,8 @@
 #include "UserInterfaces.h"
 #include <iostream>
 #include <fstream>
+#include <ctime>
+#include <time.h>
 
 //Test for cmd git link
 
@@ -81,17 +83,16 @@ int main() {
 				break;
 
 			}
+				largemon.setLargeMonID(generator.gen_largeMonID());
+				largemon.setName(type);
+				largemon.setType(pTypes[interface.typeOption]);
+				largemon.setWeakness(generator.genWeakness(interface.typeOption));
+				largemon.setSize(generator.gen_random_size());
+				largemon.setHP(generator.gen_baseHP());
+				largemon.setAttack(generator.gen_BaseAttack());
+				largemon.setSpecAttack(generator.gen_SpecAttack());
+				largemon.setMissChance(generator.assign_MissChance());
 
-			largemon.setLargeMonID(generator.gen_largeMonID());
-			largemon.setName(type);
-			largemon.setType(pTypes[interface.typeOption]);
-			largemon.setWeakness(generator.genWeakness(interface.typeOption));
-			largemon.setSize(generator.gen_random_size());
-			largemon.setHP(generator.gen_baseHP());
-			largemon.setAttack(generator.gen_BaseAttack());
-			largemon.setSpecAttack(generator.gen_SpecAttack());
-			largemon.setMissChance(generator.assign_MissChance());
-			
 			cout << "Would you like to save your new friend or abandon it? Yes/No?" << endl;
 			cout << "Please Enter y or n" << endl;
 
@@ -122,9 +123,29 @@ int main() {
 			cout << "Your LargeMon as been selected, now choose your battle\n\n";
 			//this then displays the battle options
 			interface.displayBattle();
+			
 			//generates opponents largemon
-			//battle.generateAILargemon();
+			srand(time (NULL));
+			int TempRandomTypeNumber = int (type);
+			int randomTypeNumber = TempRandomTypeNumber.push_back(pTypes[rand() % 3]);
 
+			AIlargemon.setLargeMonID(generator.gen_largeMonID());
+			AIlargemon.setName(pTypes[randomTypeNumber]);
+			AIlargemon.setType(pTypes[randomTypeNumber]);
+			AIlargemon.setWeakness(generator.genWeakness(randomTypeNumber));
+			AIlargemon.setSize(generator.gen_random_size());
+			AIlargemon.setHP(generator.gen_baseHP());
+			AIlargemon.setAttack(generator.gen_BaseAttack());
+			AIlargemon.setSpecAttack(generator.gen_SpecAttack());
+			AIlargemon.setMissChance(generator.assign_MissChance());
+
+			cout << "Your opponent is :" << pTypes[randomTypeNumber] << endl;
+			cout << "Weakness : " << generator.genWeakness(randomTypeNumber) << endl;
+			cout << "Size :  " << generator.gen_random_size() << endl;
+			cout << "Health :  " << generator.gen_baseHP() << endl;
+			cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
+			cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
+			cout << "MissChance :  " << generator.assign_MissChance() << endl;
 			break;
 
 		case 3:
@@ -146,6 +167,5 @@ int main() {
 		}
 
 	} while (menuOption != 5);
-	
 }
 
