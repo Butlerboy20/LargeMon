@@ -9,6 +9,7 @@
 
 using namespace std;
 // controller class for game, based on inputs within the user interfaces.
+
 int main() {
 	
 	PhysicalAttributeGenerator generator;
