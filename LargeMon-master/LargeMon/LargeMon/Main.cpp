@@ -6,10 +6,8 @@
 #include "UserInterfaces.h"
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 #include <ctime>
-#include <time.h>
-
-//Test for cmd git link
 
 using namespace std;
 // controller class for game, based on inputs within the user interfaces.
@@ -29,6 +27,9 @@ int main() {
 	pTypes.push_back("Wood");
 
 	int menuOption = 0;
+	//random number for generating type for AI LargeMon
+	srand(time(NULL));
+	int randomTypeNumber = (rand() % 3) + 1;
 
 	do
 	{
@@ -44,6 +45,7 @@ int main() {
 			case 1:
 				type = generator.genType(1);
 				cout << "Your LargeMon is called :" << type << endl;
+				cout << "Type : " << pTypes[interface.typeOption] << endl;
 				cout << "Weakness : " << generator.genWeakness(interface.typeOption) << endl;
 				cout << "Size :  " << generator.gen_random_size() << endl;
 				cout << "Health :  " << generator.gen_baseHP() << endl;
@@ -83,7 +85,6 @@ int main() {
 				break;
 
 			}
-				largemon.setLargeMonID(generator.gen_largeMonID());
 				largemon.setName(type);
 				largemon.setType(pTypes[interface.typeOption]);
 				largemon.setWeakness(generator.genWeakness(interface.typeOption));
@@ -120,49 +121,51 @@ int main() {
 			if (interface.LargeMonOption == 0) {
 				interface.displayInitialScreen();
 			}
-			cout << "Your LargeMon as been selected, now choose your battle\n\n";
-			//this then displays the battle options
-			interface.displayBattle();
-			
-			//generates opponents largemon
-			srand(time (NULL));
-			int TempRandomTypeNumber = int (type);
-			int randomTypeNumber = TempRandomTypeNumber.push_back(pTypes[rand() % 3]);
+			cout << "Your LargeMon as been selected, now time to battle\n\n";
 
-			AIlargemon.setLargeMonID(generator.gen_largeMonID());
-			AIlargemon.setName(pTypes[randomTypeNumber]);
-			AIlargemon.setType(pTypes[randomTypeNumber]);
-			AIlargemon.setWeakness(generator.genWeakness(randomTypeNumber));
-			AIlargemon.setSize(generator.gen_random_size());
-			AIlargemon.setHP(generator.gen_baseHP());
-			AIlargemon.setAttack(generator.gen_BaseAttack());
-			AIlargemon.setSpecAttack(generator.gen_SpecAttack());
-			AIlargemon.setMissChance(generator.assign_MissChance());
+			//generates opponent largemon
+			if (interface.LargeMonOption != 0) {
+				AIlargemon.setName(generator.genAIName(randomTypeNumber));
+				AIlargemon.setType(pTypes[randomTypeNumber]);
+				AIlargemon.setWeakness(generator.genWeakness(randomTypeNumber));
+				AIlargemon.setSize(generator.gen_random_size());
+				AIlargemon.setHP(generator.gen_baseHP());
+				AIlargemon.setAttack(generator.gen_BaseAttack());
+				AIlargemon.setSpecAttack(generator.gen_SpecAttack());
+				AIlargemon.setMissChance(generator.assign_MissChance());
 
-			cout << "Your opponent is :" << pTypes[randomTypeNumber] << endl;
-			cout << "Weakness : " << generator.genWeakness(randomTypeNumber) << endl;
-			cout << "Size :  " << generator.gen_random_size() << endl;
-			cout << "Health :  " << generator.gen_baseHP() << endl;
-			cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
-			cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
-			cout << "MissChance :  " << generator.assign_MissChance() << endl;
+				//prints out AI stats to screen
+				cout << "Your opponent is : " << generator.genAIName(randomTypeNumber) << endl;
+				cout << "Type : " << pTypes[randomTypeNumber] << endl;
+				cout << "Weakness : " << generator.genWeakness(randomTypeNumber) << endl;
+				cout << "Size :  " << generator.gen_random_size() << endl;
+				cout << "Health :  " << generator.gen_baseHP() << endl;
+				cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
+				cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
+				cout << "MissChance :  " << generator.assign_MissChance() << endl;
+				cout << "\n\n\n";
+			}
+				//this then displays the battle options
+				interface.displayBattle();
+
+		
 			break;
 
 		case 3:
-			//interface.displayInfo();
+			// displays the information and Help Screen
 			int returnOption = interface.displayInfo();
-			if (returnOption = 1) {
-				interface.displayInitialScreen();
+			if (returnOption != 1) {
+				cout << "Please Enter 1 to return to main screen\n\n\n" << endl;
 			}
-			else {
-				cout << "Please Enter 1 to return to main screen";
+			else if (returnOption == 1) {
+				//return to initial screen
+				interface.displayInitialScreen();
 			}
 
 			break;
-		
+	
 		//TO DO
 		//case 4:
-
 		// exit game;	
 		}
 

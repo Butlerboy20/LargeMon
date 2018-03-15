@@ -4,11 +4,9 @@
 
 class Battle {
 public :
-	void generateAILargemon();
-	void printAIStats();
-	void attack();
-	void heal();
-	void specAttack();
+	int attack();
+	int heal();
+	int specAttack();
 	void returnBattleResult();
 	void updateBattleCount();
 	int getAIhp();

@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Battle.h"
 #include "LargeMon.h"
-
+#include "Main.h"
+#include "UserInterfaces.h"
 //TODO - autogenerate a LargeMon to battle against
 
 //TODO
@@ -19,29 +20,52 @@
 //TODO
 //display the outcome/winner
 
-/**using namespace std;
 
-	PhysicalAttributeGenerator AIgenerator;
-	LargeMon AIlargemon;
 
-	string type;
+/**UserInterfaces battleinterface;
 
-	void generateAILargemon() {
-
-		vector <string> AITypes;
-		AITypes.push_back("Fire");
-		AITypes.push_back("Water");
-		AITypes.push_back("Wood");
-
-		AIlargemon.setLargeMonID(AIgenerator.gen_largeMonID);
-		AIlargemon.setName(AIgenerator.genType);
-		AIlargemon.setType(AITypes[AIgenerator.genType]);
-		AIlargemon.setWeakness(AIgenerator.genWeakness);
-		AIlargemon.setSize(AIgenerator.gen_random_size);
-		AIlargemon.setHP(AIgenerator.gen_baseHP);
-		AIlargemon.setAttack(AIgenerator.gen_BaseAttack);
-		AIlargemon.setSpecAttack(AIgenerator.gen_SpecAttack);
-		AIlargemon.setMissChance(AIgenerator.assign_MissChance);
+void updateBattleCount() {
+	int battleCount = 1;
+		while (battleinterface.battleOption != 0) {
+		battleCount--;
 	}
-	then call this method within battle case of main class
-	*/
+}
+
+int attack() {
+	if (battleOption == 1) {
+		int AIcurrentHP = AILargeMon.getBaseHp() - Largemon.getBaseAttack();
+		AIcurrentHP = AILargeMon.setHP();
+		return AILargeMon.HP
+		updateBattleCount();
+	}
+
+int specAttack() {
+	if (battleOption == 2) {
+	int AIcurrentHP = AILargeMon.getBaseHp() - Largemon.getSpecAttack();
+	AIcurrentHP = AILargeMon.setHP();
+	return AILargeMon.HP
+	updateBattleCount();
+}
+
+int heal () {
+	int missChance = Largemon.getMissChance();
+	if (battleOption == 3)
+	int newHP = Largemon.getBaseHP() * 1.6;
+	int newMissChance = missChance - 60;
+	
+	newMissChance = missChance
+	newHP = BaseHP;
+}
+
+void returnBattleResult() {
+	int AILargemonHP = AILargeMon.getCurrentHP();
+	int LargemonHP = Largemon.getCurrentHP();
+	if (AILargemonHP <= 0) {
+	cout << "You win! Congratulations" << endl;
+	}
+	else if (LargemonHP <= 0 ) {
+	cout << "You lose... Hope you enjoyed, please try again" << endl;
+	}
+	interface.displayInitialScreen();
+}
+*/

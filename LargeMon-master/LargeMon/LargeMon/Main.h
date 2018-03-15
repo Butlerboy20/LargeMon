@@ -3,7 +3,8 @@
 
 class Main {
 public:
-
+	void generateAILargemon();
 private:
 	char saveOrNot;
+	
 };

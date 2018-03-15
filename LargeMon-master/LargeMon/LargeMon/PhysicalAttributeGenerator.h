@@ -7,8 +7,8 @@ using namespace std;
 class PhysicalAttributeGenerator {
 public:
 	void generate();
-	int gen_largeMonID();
 	string genType(int);
+	string genAIName(int);
 	string genWeakness(int);
 	float gen_random_size();
 	int gen_randomHP();
@@ -18,7 +18,7 @@ public:
 	int assign_MissChance();
 
 private:
-	vector<string> fireNames = { "FlameMon", "FlareMon", "CombustaMon", "TarnMon", "CharMon", "FyreMon" , "PhlogisMon" };
+	vector<string> fireNames = { "FlameMon", "FlareMon", "CombustaMon", "TarnMon", "CharMon", "FyreMon" , "PhlogisMon", "PyroMon"};
 	vector<string> waterNames = { "SplashMon", "SquirtMon", "DuckMon", "WetMon", "DampMon", "MoistMon" };
 	vector<string> woodNames = { "BarkMon", "TrunkMon", "BranchMon", "EdwardWoodWoodMon", "WoodMon", "LumberMon" };
 };
