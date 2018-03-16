@@ -37,7 +37,7 @@ int main() {
 		// use case statements to switch between possible screens
 		menuOption = interface.displayInitialScreen();
 
-		switch (menuOption)	
+		switch (menuOption)
 		{
 		case 1:
 			interface.displayGenerator();
@@ -53,9 +53,9 @@ int main() {
 				cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
 				cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
 				cout << "MissChance :  " << generator.assign_MissChance() << endl;
-	
+
 				break;
-	
+
 				//water
 			case 2:
 				type = generator.genType(2);
@@ -86,33 +86,32 @@ int main() {
 				break;
 
 			}
-				largemon.setName(type);
-				largemon.setType(pTypes[interface.typeOption]);
-				largemon.setWeakness(generator.genWeakness(interface.typeOption));
-				largemon.setSize(generator.gen_random_size());
-				largemon.setHP(generator.gen_baseHP());
-				largemon.setAttack(generator.gen_BaseAttack());
-				largemon.setSpecAttack(generator.gen_SpecAttack());
-				largemon.setMissChance(generator.assign_MissChance());
+			largemon.setName(type);
+			largemon.setType(pTypes[interface.typeOption]);
+			largemon.setWeakness(generator.genWeakness(interface.typeOption));
+			largemon.setSize(generator.gen_random_size());
+			largemon.setHP(generator.gen_baseHP());
+			largemon.setAttack(generator.gen_BaseAttack());
+			largemon.setSpecAttack(generator.gen_SpecAttack());
+			largemon.setMissChance(generator.assign_MissChance());
 
 			cout << "Would you like to save your new friend or abandon it? Yes/No?" << endl;
 			cout << "Please Enter y or n" << endl;
 
-				char saveOrNot;
+			char saveOrNot;
 			cin >> saveOrNot;
-				switch (saveOrNot) {
-					case 'y':
-						// save to file goes here
-						cout << "Your LargeMon has been successfully saved." << endl;
-						break;
-					case 'n' :
-						// delete largeMon
-						cout << "Your LargeMon has been removed from the game." << endl;
-						break;
-				}
-			
+			switch (saveOrNot) {
+			case 'y':
+				// save to file goes here
+				cout << "Your LargeMon has been successfully saved." << endl;
+				break;
+			case 'n':
+				// delete largeMon
+				cout << "Your LargeMon has been removed from the game." << endl;
+				break;
+			}
+
 			cout << "Your LargeMon has been created, returning you to the menu \n\n\n\n";
-			interface.displayInitialScreen();
 
 			break;
 
@@ -124,7 +123,7 @@ int main() {
 			}
 			cout << "Your LargeMon as been selected, now time to battle\n\n";
 
-			//generates opponent largemon
+			//Auto generates opponent largemon
 			if (interface.LargeMonOption != 0) {
 				AIlargemon.setName(generator.genAIName(randomTypeNumber));
 				AIlargemon.setType(pTypes[randomTypeNumber]);
@@ -146,30 +145,27 @@ int main() {
 				cout << "MissChance :  " << generator.assign_MissChance() << endl;
 				cout << "\n\n\n";
 			}
-				//this then displays the battle options
-				interface.displayBattle();
+			//this then displays the battle options
+			interface.displayBattle();
 
-		
 			break;
 
 		case 3:
 			// displays the information and Help Screen
 			int returnOption = interface.displayInfo();
-			if (returnOption != 1) {
-				cout << "Please Enter 1 to return to main screen\n\n\n" << endl;
+			while (returnOption != 1 || cin.fail()) //error check for incorrect keyboard input
+			{
+				cout << "Input 1 to return to main \n";
+				cin.clear();
+				cin.ignore(256, '\n');
+				cin >> returnOption;
 			}
-			else if (returnOption == 1) {
-				//return to initial screen
-				interface.displayInitialScreen();
-			}
-
 			break;
-	
-		//TO DO
-		//case 4:
-		// exit game;	
-		}
 
+			//TO DO
+			//case 4:
+			// exit game;	
+		}
 	} while (menuOption != 5);
 }
 

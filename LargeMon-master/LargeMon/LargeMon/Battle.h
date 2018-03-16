@@ -9,6 +9,7 @@ public :
 	int specAttack();
 	void returnBattleResult();
 	void updateBattleCount();
+	void generateAIlargemon(int randomTypeNumber);
 	int getAIhp();
 	int getAICurrentHP();
 	int getLimiter();
