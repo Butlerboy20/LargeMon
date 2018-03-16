@@ -16,6 +16,13 @@ int UserInterfaces::displayInitialScreen() {
 	cout << "Please choose one of the following options" << endl;
 	cout << " 1. Create a New LargeMon\n 2. Go to Battle!\n 3. Info Screen/Help\n";
 	cin >> menuOption;
+	while (menuOption < 1 || menuOption > 3 || cin.fail()) //error check for incorrect keyboard input
+	{
+		cout << "Input 1 for creation, 2 for battle or 3 for info \n";
+		cin.clear();
+		cin.ignore(256, '\n');
+		cin >> menuOption;
+	}
 	return menuOption;
 }
 
@@ -24,6 +31,13 @@ int UserInterfaces::displayGenerator() {
 	cout << "Please Select a Type you would like your LargeMon to be" << endl;
 	cout << " 1. Fire\n 2. Water\n 3. Wood\n";
 	cin >> typeOption;
+	while (typeOption < 1 || typeOption > 3 || cin.fail()) //error check for incorrect keyboard input
+	{
+		cout << "Input 1 for a fire type, 2 for a water type or 3 for a wood type \n";
+		cin.clear();
+		cin.ignore(256, '\n');
+		cin >> typeOption;
+	}
 	return typeOption;
 }
 
@@ -42,6 +56,13 @@ int UserInterfaces::displayChooseLargeMon() {
 int UserInterfaces::displayBattle() {
 	cout << " 1. Attack\n 2. Special Attack\n 3. Heal\n";
 	cin >> battleOption;
+	while (battleOption < 1 || battleOption > 3 || cin.fail()) //error check for incorrect keyboard input
+	{
+		cout << "Input 1 for a fire type, 2 for a water type or 3 for a wood type \n";
+		cin.clear();
+		cin.ignore(256, '\n');
+		cin >> battleOption;
+	}
 	return battleOption;
 }
 

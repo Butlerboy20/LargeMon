@@ -22,6 +22,7 @@ int main() {
 	string type;
 
 	vector <string> pTypes;
+	pTypes.push_back("");
 	pTypes.push_back("Fire");
 	pTypes.push_back("Water");
 	pTypes.push_back("Wood");
@@ -36,7 +37,7 @@ int main() {
 		// use case statements to switch between possible screens
 		menuOption = interface.displayInitialScreen();
 
-		switch (menuOption)
+		switch (menuOption)	
 		{
 		case 1:
 			interface.displayGenerator();

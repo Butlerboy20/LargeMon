@@ -1,4 +1,2 @@
-﻿  Main.cpp
-c:\users\dan\source\repos\largemon\largemon-master\largemon\largemon\main.cpp(31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\dan\source\repos\largemon\largemon-master\largemon\largemon\main.cpp(20): warning C4101: 'battle': unreferenced local variable
+﻿  UserInterfaces.cpp
   LargeMon.vcxproj -> C:\Users\Dan\source\repos\LargeMon\LargeMon-master\LargeMon\x64\Debug\LargeMon.exe

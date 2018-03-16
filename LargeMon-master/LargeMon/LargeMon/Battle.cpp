@@ -31,7 +31,7 @@ void updateBattleCount() {
 	}
 }
 
-int attack() {
+int attack(getLargemonBaseAttack, AILargemon) {
 	if (battleOption == 1) {
 		int AIcurrentHP = AILargeMon.getBaseHp() - Largemon.getBaseAttack();
 		AIcurrentHP = AILargeMon.setHP();
