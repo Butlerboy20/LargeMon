@@ -125,25 +125,28 @@ int main() {
 
 			//Auto generates opponent largemon
 			if (interface.LargeMonOption != 0) {
-				AIlargemon.setName(generator.genAIName(randomTypeNumber));
-				AIlargemon.setType(pTypes[randomTypeNumber]);
-				AIlargemon.setWeakness(generator.genWeakness(randomTypeNumber));
-				AIlargemon.setSize(generator.gen_random_size());
-				AIlargemon.setHP(generator.gen_baseHP());
-				AIlargemon.setAttack(generator.gen_BaseAttack());
-				AIlargemon.setSpecAttack(generator.gen_SpecAttack());
-				AIlargemon.setMissChance(generator.assign_MissChance());
 
-				//prints out AI stats to screen
-				cout << "Your opponent is : " << generator.genAIName(randomTypeNumber) << endl;
-				cout << "Type : " << pTypes[randomTypeNumber] << endl;
-				cout << "Weakness : " << generator.genWeakness(randomTypeNumber) << endl;
-				cout << "Size :  " << generator.gen_random_size() << endl;
-				cout << "Health :  " << generator.gen_baseHP() << endl;
-				cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
-				cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
-				cout << "MissChance :  " << generator.assign_MissChance() << endl;
-				cout << "\n\n\n";
+				//call the AI method from within battle.cpp
+				generateAIlargemon(randomTypeNumber);
+				//AIlargemon.setName(generator.genAIName(randomTypeNumber));
+				//AIlargemon.setType(pTypes[randomTypeNumber]);
+				//AIlargemon.setWeakness(generator.genWeakness(randomTypeNumber));
+				//AIlargemon.setSize(generator.gen_random_size());
+				//AIlargemon.setHP(generator.gen_baseHP());
+				//AIlargemon.setAttack(generator.gen_BaseAttack());
+				//AIlargemon.setSpecAttack(generator.gen_SpecAttack());
+				//AIlargemon.setMissChance(generator.assign_MissChance());
+
+				////prints out AI stats to screen
+				//cout << "Your opponent is : " << generator.genAIName(randomTypeNumber) << endl;
+				//cout << "Type : " << pTypes[randomTypeNumber] << endl;
+				//cout << "Weakness : " << generator.genWeakness(randomTypeNumber) << endl;
+				//cout << "Size :  " << generator.gen_random_size() << endl;
+				//cout << "Health :  " << generator.gen_baseHP() << endl;
+				//cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
+				//cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
+				//cout << "MissChance :  " << generator.assign_MissChance() << endl;
+				//cout << "\n\n\n";
 			}
 			//this then displays the battle options
 			interface.displayBattle();

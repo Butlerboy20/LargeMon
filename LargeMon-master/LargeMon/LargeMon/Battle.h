@@ -2,6 +2,8 @@
 #include "stdafx.h"
 #include <string>
 
+void generateAIlargemon(int randomTypeNumber);
+
 class Battle {
 public :
 	int attack();
