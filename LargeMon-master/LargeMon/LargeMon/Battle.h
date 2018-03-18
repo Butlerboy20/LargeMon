@@ -2,7 +2,8 @@
 #include "stdafx.h"
 #include <string>
 
-void generateAIlargemon(int randomTypeNumber);
+LargeMon generateAIlargemon(int randomTypeNumber);
+void performBattle(LargeMon myLargMon, LargeMon generatedMon);
 
 class Battle {
 public :

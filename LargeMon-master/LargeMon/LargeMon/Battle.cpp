@@ -8,10 +8,10 @@
 #include <ctime>>
 
 PhysicalAttributeGenerator generator;
-LargeMon AIlargemon;
+LargeMon myLargeMon, AIlargemon;
 Battle battle;
 
-void generateAIlargemon(int randomTypeNumber) {
+LargeMon generateAIlargemon(int randomTypeNumber) {
 
 		vector <string> fTypes;
 		fTypes.push_back("");
@@ -38,6 +38,18 @@ void generateAIlargemon(int randomTypeNumber) {
 		cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
 		cout << "MissChance :  " << generator.assign_MissChance() << endl;
 		cout << "\n\n\n";
+
+		return AIlargemon;
+}
+
+void performBattle(LargeMon myLargMon, LargeMon generatedMon) {
+
+	//this method gets passed two LargeMon types, your LargeMon and the AI LargeMon
+	//here you should be able to do what you wish with them ...
+
+	myLargeMon = myLargMon;
+	AIlargemon = generatedMon;
+
 }
 
 

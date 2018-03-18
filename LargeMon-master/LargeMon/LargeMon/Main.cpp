@@ -10,6 +10,7 @@
 #include <ctime>
 
 using namespace std;
+int selectedLargeMon;
 // controller class for game, based on inputs within the user interfaces.
 
 int main() {
@@ -103,6 +104,7 @@ int main() {
 			switch (saveOrNot) {
 			case 'y':
 				// save to file goes here
+				// I think that you need to save to an array/vector rather than a file
 				cout << "Your LargeMon has been successfully saved." << endl;
 				break;
 			case 'n':
@@ -117,7 +119,8 @@ int main() {
 
 		case 2:
 			//this starts by allowing the user to select a largeMon from these created by them
-			interface.displayChooseLargeMon();
+			//the point to the array element is returned
+			selectedLargeMon = interface.displayChooseLargeMon();
 			if (interface.LargeMonOption == 0) {
 				interface.displayInitialScreen();
 			}
@@ -125,31 +128,18 @@ int main() {
 
 			//Auto generates opponent largemon
 			if (interface.LargeMonOption != 0) {
-
 				//call the AI method from within battle.cpp
-				generateAIlargemon(randomTypeNumber);
-				//AIlargemon.setName(generator.genAIName(randomTypeNumber));
-				//AIlargemon.setType(pTypes[randomTypeNumber]);
-				//AIlargemon.setWeakness(generator.genWeakness(randomTypeNumber));
-				//AIlargemon.setSize(generator.gen_random_size());
-				//AIlargemon.setHP(generator.gen_baseHP());
-				//AIlargemon.setAttack(generator.gen_BaseAttack());
-				//AIlargemon.setSpecAttack(generator.gen_SpecAttack());
-				//AIlargemon.setMissChance(generator.assign_MissChance());
-
-				////prints out AI stats to screen
-				//cout << "Your opponent is : " << generator.genAIName(randomTypeNumber) << endl;
-				//cout << "Type : " << pTypes[randomTypeNumber] << endl;
-				//cout << "Weakness : " << generator.genWeakness(randomTypeNumber) << endl;
-				//cout << "Size :  " << generator.gen_random_size() << endl;
-				//cout << "Health :  " << generator.gen_baseHP() << endl;
-				//cout << "AttackPoints :  " << generator.gen_BaseAttack() << endl;
-				//cout << "SpecialAttack :  " << generator.gen_SpecAttack() << endl;
-				//cout << "MissChance :  " << generator.assign_MissChance() << endl;
-				//cout << "\n\n\n";
+				//I have modified the method to return the generated AI largeMon
+				AIlargemon = generateAIlargemon(randomTypeNumber);
 			}
+
+			//largemon(selectedLargeMon);
 			//this then displays the battle options
 			interface.displayBattle();
+			//your selected and the returned generated LargeMon is passed to the battle method
+			//the LargeMon selection method would either return the users selected largeMon or a pointer to the LargeMon array
+			//which ever method is used to select the LargeMon then it will be passed to the battle method like below
+			//performBattle(myLargMon, AIlargemon);
 
 			break;
 
